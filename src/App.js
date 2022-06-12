@@ -1,9 +1,7 @@
+import Directory from "./components/directory/directory.components";
+
 const App = () => {
-  return (
-    <div class="categories-container">
-      <div class="category-container">{/* <img/> */}</div>
-    </div>
-  );
+  return <Directory />;
 };
 
 export default App;

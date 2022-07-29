@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -6,6 +6,7 @@ import {
 import FormInput from "../form-input/form-input.component";
 import "./sign-up-form.styles.scss";
 import Button from "../button/button.components";
+import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
   displayName: "",
@@ -18,6 +19,8 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   console.log(formFields);
+
+  const val = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -92,7 +95,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <Button buttonType="google" type="submit">
+        <Button buttonType="inverted" type="submit">
           Sign Up
         </Button>
       </form>
